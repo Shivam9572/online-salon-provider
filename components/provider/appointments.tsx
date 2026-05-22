@@ -27,20 +27,30 @@ interface AppointmentHistoryProps { onUnauthorized?: () => void; }
 
 // ─── Time Helpers ─────────────────────────────────────────────────────────────
 const formatAppointmentDate = (iso: string): string => {
-  const d = new Date(iso);
-  const days   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return `${days[d.getUTCDay()]}, ${d.getUTCDate()} ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+  return new Date(iso).toLocaleDateString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+  // → "Thu, 22 May 2026" ✅
 };
 const formatAppointmentTime = (iso: string): string => {
-  const d = new Date(iso);
-  const h = d.getUTCHours(), m = String(d.getUTCMinutes()).padStart(2,'0');
-  return `${h % 12 || 12}:${m} ${h >= 12 ? 'pm' : 'am'}`;
+  return new Date(iso).toLocaleTimeString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true
+  });
+  // → "10:30 am" ✅
 };
+
+// ✅ formatCreatedAt — already sahi hai, kuch mat badlo
 const formatCreatedAt = (iso: string): string =>
-  new Date(iso).toLocaleString('en-IN', {
-    weekday:'short', day:'numeric', month:'short', year:'numeric',
-    hour:'2-digit', minute:'2-digit', timeZone:'Asia/Kolkata',
+  new Date(iso).toLocaleString("en-IN", {
+    weekday: "short", day: "numeric", month: "short", year: "numeric",
+    hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata",
   });
 
 const formatCurrency = (v: string) => '₹' + parseFloat(v).toLocaleString('en-IN');
