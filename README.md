@@ -1,7 +1,7 @@
 Online Salon Provider 💇‍♀️✨
 A modern full-stack salon appointment booking platform where users can explore salon services, book appointments, manage schedules, and enjoy a seamless salon experience online.
 🚀 Live Demo
-🌐 Live Website: https://salon-appointment-a32y.vercel.app
+🌐 Live Website: https://salon-appointment-two.vercel.app
 📌 Features
 🔐 User Authentication & Authorization
 📅 Online Appointment Booking
@@ -72,5 +72,5 @@ GitHub: github.com⁠�
 📄 License
 This project is open-source and available under the MIT License.
 Repository: github.com⁠�
-Project live on: salon-appointment-a32y.vercel.app⁠�
+Project live on: https://salon-appointment-two.vercel.app
 
